@@ -1,0 +1,12 @@
+#tagFbMarketplace{
+	background-image: url(http://www.stephanimoroni.com/fb-hack/images/tag.png);
+	background-repeat: no-repeat;
+	height: 30px;
+	width: 30px;
+	border-right: 1px solid #e5e5e5;
+}
+
+#tagFbMarketplace:hover{
+	background-color: #e5e5e5;
+}
+

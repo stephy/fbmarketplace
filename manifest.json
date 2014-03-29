@@ -1,0 +1,20 @@
+{
+  "name": "Facebook Marketplace",
+  "description": "Sell items on Facebook",
+  "version": "0.1",
+  "permissions": [
+    "activeTab"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [ {
+    "js": [ "jquery-1.11.0.min.js", "default.js" ],
+    "css": ["default.css"],
+    "matches": [ "http://*/*", "https://*/*"]
+  }],
+  "browser_action": {
+    "default_title": "Facebook Marketplace"
+  },
+  "manifest_version": 2
+}
