@@ -41,7 +41,7 @@ function FbMarketplace(){
 
 	var title = $('<div>', {
 	  class: 'uiHeader uiHeaderTopBorder mbm pbs uiSideHeader',
-	  html: '<h6 class="uiHeaderTitle">Marketplace</h6>',
+	  html: '<h6 class="uiHeaderTitle" id="fbmpnav-title">Marketplace</h6>',
 	  css:{
 	    'cursor': 'pointer'
 	  }
@@ -53,10 +53,12 @@ function FbMarketplace(){
 	 * insert market button
 	 */
 	//get status input box
-	var inputBox = $('#u_0_1s');
+	var inputBox = $('.mentionsTextarea');
+	console.log('Input box:', inputBox);
 
 	//add event to input box
 	inputBox.on('click', function(){
+		
 		//watch for hashtag 
 		var textarea = $('.mentionsTextarea');
 		//#fbmarketplace
@@ -106,14 +108,15 @@ function FbMarketplace(){
 			  class: 'lfloat',
 			  css:{
 			    'cursor': 'pointer'
-			  }
+			  },
+			  
 			});
 			mpbutton.on('click', function(){
-				//clicked
-				console.log("clicked");
 				//show title input
 				var inputTitle = $('<input>', {
 				  id: 'FbMarketplace-title',
+				  placeholder: 'What are you selling?',
+				  class: 'inputtext textInput DOMControl_placeholder'
 				});
 				//get input box
 				var inputB = $('.uiTypeahead');
@@ -121,15 +124,35 @@ function FbMarketplace(){
 				inputTitle.appendTo(inputB);
 				var inputWrapper = $('#u_4_1');
 				inputWrapper.css('display', 'block');
+
+				//add event handler for post button
+				var buttonPost = $('._42ft._4jy0._11b._4jy3._4jy1.selected');
+				buttonPost.on('click', function(){
+					console.log("submit");
+					var fbmpItemwrapper = $('<div>', {
+					  class: 'item-wrapper',
+					  css:{
+					    'cursor': 'pointer'
+					  }
+					});
+
+					var fbmpItemTitle = $('<span>', {
+					  class: '_5v0s',
+					  html: '<span class="_5my8">iPad Retina $250</span><span class="_5v9v"> I am selling my iPad retina, brand new! </span>'
+					});
+
+					var t = $('#fbmpnav-title');
+					var title = $('#FbMarketplace-title').val();
+					console.log('title:', title);
+					fbmpItemwrapper.append(fbmpItemTitle);
+					fbmpItemwrapper.insertAfter(t);
+					console.log(fbmpItemwrapper);
+					
+				});
 			});
 			mpbutton.prependTo(actionBar);
 		}
 		
-		//allow to show title of post
-		
-		
-		
-		//buttons will appear, insert marketplace button
 
 
 	});
